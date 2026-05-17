@@ -8,6 +8,4 @@ __pycache__/
 node_modules/
 .next/
 venv/
-*.csv
-*.json
 .DS_Store
