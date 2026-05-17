@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+:root {
+  --bg-primary: #00060f;
+  --bg-secondary: #000d1a;
+  --bg-card: rgba(0, 20, 40, 0.6);
+  --accent-gold: #E8A020;
+  --accent-gold-dim: #C86A00;
+  --accent-green: #00ff88;
+  --accent-red: #ff3355;
+  --accent-blue: #0088ff;
+  --border-dim: rgba(232, 160, 32, 0.15);
+  --border-bright: rgba(232, 160, 32, 0.5);
+  --text-primary: #ffffff;
+  --text-secondary: #8899aa;
+  --text-gold: #E8A020;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'Space Grotesk', sans-serif;
+  overflow-x: hidden;
+}
+.font-mono { font-family: 'JetBrains Mono', monospace; }
+
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(232,160,32,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(232,160,32,0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+.glow-gold { box-shadow: 0 0 30px rgba(232,160,32,0.3), 0 0 60px rgba(232,160,32,0.1); }
+.glow-red  { box-shadow: 0 0 30px rgba(255,51,85,0.4),  0 0 60px rgba(255,51,85,0.15); }
+.glow-green{ box-shadow: 0 0 30px rgba(0,255,136,0.3),  0 0 60px rgba(0,255,136,0.1); }
+
+.glass {
+  background: var(--bg-card);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--border-dim);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+.glass:hover { border-color: var(--border-bright); }
+
+@keyframes borderSpin {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.animated-border {
+  background: linear-gradient(270deg, #E8A020, #ff3355, #0088ff, #00ff88, #E8A020);
+  background-size: 400% 400%;
+  animation: borderSpin 4s ease infinite;
+  padding: 1px;
+  border-radius: 12px;
+}
+.animated-border-inner {
+  background: var(--bg-primary);
+  border-radius: 11px;
+  height: 100%;
+  width: 100%;
+}
+
+@keyframes pulseRing {
+  0%   { transform: scale(1);   opacity: 1; }
+  100% { transform: scale(2.5); opacity: 0; }
+}
+
+@keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0; } }
+.cursor::after {
+  content: '|';
+  animation: blink 1s step-end infinite;
+  color: var(--accent-gold);
+}
+
+@keyframes dataFlow {
+  0%   { stroke-dashoffset: 1000; opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { stroke-dashoffset: 0;    opacity: 0; }
+}
+.data-flow { animation: dataFlow 3s linear infinite; }
+
+@keyframes countUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+.count-up { animation: countUp 0.5s ease forwards; }
+
+.risk-extreme { color: #ff3355; border-color: #ff3355; background: rgba(255,51,85,0.1); }
+.risk-high    { color: #ff8800; border-color: #ff8800; background: rgba(255,136,0,0.1); }
+.risk-moderate{ color: #E8A020; border-color: #E8A020; background: rgba(232,160,32,0.1); }
+.risk-normal  { color: #00ff88; border-color: #00ff88; background: rgba(0,255,136,0.1); }
+
+.cascade-node { position: relative; transition: all 0.4s ease; }
+.cascade-node.active { transform: scale(1.05); }
+
+::-webkit-scrollbar       { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb { background: var(--accent-gold-dim); border-radius: 2px; }
+
+.elite-input {
+  background: rgba(0,20,40,0.8);
+  border: 1px solid var(--border-dim);
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  padding: 10px 14px;
+  width: 100%;
+  transition: all 0.2s;
+  outline: none;
+}
+.elite-input:focus { border-color: var(--accent-gold); box-shadow: 0 0 0 2px rgba(232,160,32,0.1); }
+
+.elite-select {
+  background: rgba(0,20,40,0.8);
+  border: 1px solid var(--border-dim);
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  padding: 10px 14px;
+  width: 100%;
+  outline: none;
+  cursor: pointer;
+  appearance: none;
+  transition: border-color 0.2s;
+}
+.elite-select:focus { border-color: var(--accent-gold); }
+.elite-select option { background: #000d1a; }
