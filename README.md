@@ -8,15 +8,15 @@
 
 <br/><br/>
 
-<a href="#">
+<a href="https://clima-shock-pakistan.vercel.app">
 <img src="https://img.shields.io/badge/%F0%9F%9F%A2%20LIVE%20UI-Vercel-E8A020?style=for-the-badge&labelColor=0a1628"/>
 </a>
 &nbsp;
-<a href="#">
+<a href="https://abu-sameer-66-climashock-api.hf.space/docs">
 <img src="https://img.shields.io/badge/%F0%9F%9F%A2%20LIVE%20API-HuggingFace-E8A020?style=for-the-badge&labelColor=0d2137"/>
 </a>
 &nbsp;
-<a href="https://kaggle.com/code/sameernadeem66/climashock-data-collection">
+<a href="https://www.kaggle.com/code/sameernadeem66/climashock-data-collection">
 <img src="https://img.shields.io/badge/%F0%9F%93%8A%20Kaggle-Notebook-20BEFF?style=for-the-badge&logo=kaggle&labelColor=0a1628"/>
 </a>
 &nbsp;
@@ -31,7 +31,7 @@
 <img src="https://img.shields.io/badge/XGBoost-Ensemble-E8A020?style=flat-square&labelColor=0a1628"/>
 <img src="https://img.shields.io/badge/PySpark-4.0.2-C86A00?style=flat-square&logo=apachespark&logoColor=white&labelColor=0d2137"/>
 <img src="https://img.shields.io/badge/FastAPI-0.111-E8A020?style=flat-square&logo=fastapi&logoColor=white&labelColor=0a1628"/>
-<img src="https://img.shields.io/badge/Next.js-15-C86A00?style=flat-square&logo=nextdotjs&logoColor=white&labelColor=0d2137"/>
+<img src="https://img.shields.io/badge/Next.js-16-C86A00?style=flat-square&logo=nextdotjs&logoColor=white&labelColor=0d2137"/>
 <img src="https://img.shields.io/badge/NASA%20POWER-API-E8A020?style=flat-square&labelColor=0a1628"/>
 <img src="https://img.shields.io/badge/Tesla%20T4-GPU-C86A00?style=flat-square&logo=nvidia&logoColor=white&labelColor=0d2137"/>
 
@@ -43,13 +43,13 @@
 
 **Pakistan loses billions every year to climate-driven economic cascades.**
 
-The 2022 floods displaced 33 million people. But nobody knew — in advance — how a rainfall anomaly in Sukkur would cascade into cotton collapse, food price spirals, and a national inflation crisis peaking at 30.8% the following year.
+The 2022 floods displaced 33 million people. Cotton collapsed 37.7%. Rice fell 21.5%. Inflation peaked at 30.8% the following year. GDP contracted to -0.41%.
+
+But nobody knew — in advance — how a rainfall anomaly in Sukkur would cascade into a national economic crisis.
 
 The problem is not that the data does not exist. NASA, World Bank, and FAO publish decades of it — freely.
 
-**The problem is that nobody built a distributed system to find the causal chains hidden inside it.**
-
-**ClimaShock is that system.**
+**The problem is that nobody built a distributed system to find the causal chains hidden inside it. ClimaShock is that system.**
 
 ---
 
@@ -57,10 +57,10 @@ The problem is not that the data does not exist. NASA, World Bank, and FAO publi
 
 | Service | URL | Status |
 |:---|:---|:---:|
-| Web UI | [climashock.vercel.app](#) | 🟢 Live |
-| REST API | [HuggingFace Spaces](#) | 🟢 Live |
-| API Docs | [/docs](#) | 🟢 Live |
-| Kaggle Notebook | [sameernadeem66/climashock](https://kaggle.com/code/sameernadeem66/climashock-data-collection) | 🟢 Public |
+| Web UI | [clima-shock-pakistan.vercel.app](https://clima-shock-pakistan.vercel.app) | 🟢 Live |
+| REST API | [abu-sameer-66-climashock-api.hf.space](https://abu-sameer-66-climashock-api.hf.space) | 🟢 Live |
+| API Docs | [/docs](https://abu-sameer-66-climashock-api.hf.space/docs) | 🟢 Live |
+| Kaggle Notebook | [sameernadeem66/climashock-data-collection](https://www.kaggle.com/code/sameernadeem66/climashock-data-collection) | 🟢 Public |
 
 ---
 
@@ -68,17 +68,17 @@ The problem is not that the data does not exist. NASA, World Bank, and FAO publi
 
 > These findings did not exist before this system was built.
 
-| Rank | Discovery | Evidence | Quantified For First Time |
+| Rank | Discovery | Evidence | First Time Quantified |
 |:---|:---|:---|:---:|
-| 🥇 | Extreme rainfall causes national **inflation spike after 2-year lag** | Granger strength **0.347** — strongest causal link in system | ✅ |
-| 🥈 | **Sukkur** is Pakistan's highest climate-economic risk epicentre | 2022 rainfall **+1293%** — highest σ of all 10 districts | ✅ |
-| 🥉 | **Cotton** is Pakistan's most climate-vulnerable export crop | 2022: -37.7% yield → direct export revenue shock | ✅ |
-| 4 | Temperature anomaly has **4-year delayed inflation effect** | Granger strength 0.128, lag=4y | ✅ |
-| 5 | 21 causal links discovered across climate-economic-agricultural domains | Pakistan's first cross-domain causal graph | ✅ |
+| 🥇 | Extreme rainfall causes **inflation spike after 2-year lag** | Granger strength **0.347** — strongest link | ✅ |
+| 🥈 | **Sukkur** is Pakistan's highest climate-economic risk zone | 2022 rainfall **+1293%** · z-score **+3.2σ** | ✅ |
+| 🥉 | **Cotton** is Pakistan's most climate-vulnerable export crop | 2022: **-37.7%** yield shock | ✅ |
+| 4 | Temperature anomaly has **4-year delayed inflation effect** | Granger lag=4y · strength=0.128 | ✅ |
+| 5 | **21 causal links** across climate-economic-agricultural domains | Pakistan's first cross-domain causal graph | ✅ |
 
 ---
 
-## System Architecture — Distributed 3-Node Design
+## System Architecture
 ┌─────────────────────────────────────────────────────────────────┐
 │                         DATA LAYER                              │
 │   NASA POWER API (climate) │ World Bank API │ FAO Crop Data     │
@@ -90,40 +90,31 @@ The problem is not that the data does not exist. NASA, World Bank, and FAO publi
 │  PID 798       │  │  PID 799       │  │  PID 800        │
 │  Climate       │  │  Economic      │  │  Agricultural   │
 │  Processor     │  │  Processor     │  │  Processor      │
-│                │  │                │  │                 │
-│  Z-scores      │  │  Inflation     │  │  Crop yield     │
-│  Anomaly det.  │  │  GDP shocks    │  │  YoY change     │
-│  Risk scoring  │  │  Stress index  │  │  Shock detect   │
 └────────┬───────┘  └──────┬─────────┘  └──────┬──────────┘
-│                 │                    │
 └────────────┬────┘────────────────────┘
 │  Queue-based Message Passing
 ┌──────────▼──────────────┐
 │   CENTRAL AGGREGATOR    │
-│   Data fusion engine    │
 │   (34, 28) master matrix│
 └──────────┬──────────────┘
 │
-┌────────────────▼────────────────────┐
-│       CAUSAL DISCOVERY ENGINE        │
-│  Granger Causality · 21 links found  │
-│  Temporal lag analysis (1–4 years)   │
-└────────────────┬────────────────────┘
+┌────────────────▼─────────────────────┐
+│       CAUSAL DISCOVERY ENGINE         │
+│  Granger Causality · 21 links found   │
+│  Temporal lag analysis (1–4 years)    │
+└────────────────┬─────────────────────┘
 │
 ┌─────────────────────▼──────────────────────────┐
 │              ML ENSEMBLE LAYER                  │
-│                                                 │
-│  LSTM (PyTorch)          XGBoost Ensemble       │
-│  Inflation MAE: 2.87%    Inflation MAE: 3.19%   │
-│  GPU: Tesla T4           Lag features: 6        │
-│                                                 │
-│  10 District-Specific Models (parallel trained) │
-│  Average MAE: 4.42%  ·  Training: 47.3s on GPU  │
+│  LSTM (PyTorch)  MAE 2.87%  ·  Tesla T4 GPU     │
+│  XGBoost         MAE 3.19%  ·  6 lag features   │
+│  Ensemble        MAE 3.13%  ·  Inverse weighting │
+│  10 district-specific models  ·  47.3s parallel  │
 └─────────────────────┬──────────────────────────┘
 │
 ┌─────────────────────▼──────────────────────────┐
-│                 API + UI LAYER                  │
-│  FastAPI (HuggingFace) · Next.js (Vercel)       │
+│              API + UI LAYER                     │
+│  FastAPI (HuggingFace) · Next.js 16 (Vercel)    │
 │  /predict  /causal  /districts  /discoveries    │
 └────────────────────────────────────────────────┘
 
@@ -133,31 +124,34 @@ The problem is not that the data does not exist. NASA, World Bank, and FAO publi
 
 | Model | Inflation MAE | Crop MAE | Notes |
 |:---|:---:|:---:|:---|
-| LSTM (national) | **2.87%** | 7.09% | Best inflation predictor |
-| XGBoost (national) | 3.19% | 9.39% | Lag features: 6 |
-| **Ensemble** | **3.13%** | **7.89%** | Weighted inverse-MAE |
-| District LSTM (avg) | 4.42% | 13.71% | 10 parallel models, GPU T4 |
+| LSTM (national) | **2.87%** | 7.09% | PyTorch · Tesla T4 |
+| XGBoost | 3.19% | 9.39% | 6 lag features |
+| **Ensemble** | **3.13%** | **7.89%** | Inverse-MAE weighted |
+| District LSTM avg | 4.42% | 13.71% | 10 parallel models |
 
-**Back-test 2022:** Predicted inflation 26.0% → Actual 2023: **30.8%** (4.8% error)
+**2022 Back-test:** Predicted 26.0% → Actual 2023: **30.8%** (4.8% error)
 **GDP direction:** Predicted "contraction likely" → Actual: **-0.41%** ✅
 
 ---
 
-## Parallel Processing — PDC Architecture
+## Parallel PDC Architecture — Verified
 3 nodes spawned simultaneously:
-Node 1 — PID 798 — climate   ─┐
-Node 2 — PID 799 — economic   ├─ 0.076 seconds total
-Node 3 — PID 800 — agri      ─┘
-10 district models trained in parallel on Tesla T4 GPU:
-Faisalabad · Hyderabad · Islamabad · Karachi · Lahore
-Multan · Peshawar · Quetta · Sialkot · Sukkur
-Total training time: 47.3 seconds
+Node 1 — PID 798 — climate processor    ─┐
+Node 2 — PID 799 — economic processor    ├─ 0.076 seconds total
+Node 3 — PID 800 — agricultural processor─┘
+10 district models trained in parallel — Tesla T4 GPU:
+Faisalabad  MAE=3.20%  │  Hyderabad   MAE=3.65%
+Islamabad   MAE=5.39%  │  Karachi     MAE=5.90%
+Lahore      MAE=4.78%  │  Multan      MAE=4.28%
+Peshawar    MAE=6.49%  │  Quetta      MAE=1.60% ⭐
+Sialkot     MAE=4.48%  │  Sukkur      MAE=4.41%
+Total training time: 47.3 seconds on Tesla T4
 
 ---
 
 ## Causal Links Discovered
 
-| Rank | Cause | Effect | Lag | Granger Strength |
+| Rank | Cause | Effect | Lag | Strength |
 |:---:|:---|:---|:---:|:---:|
 | 1 | rain_anomaly | **inflation_pct** | 2 years | **0.347** |
 | 2 | food_production_index | crop_stress | 1 year | 0.365 |
@@ -167,64 +161,65 @@ Total training time: 47.3 seconds
 
 ---
 
+## API Usage
+
+```bash
+# cascade prediction — enter today's climate data
+curl -X POST "https://abu-sameer-66-climashock-api.hf.space/predict" \
+  -H "Content-Type: application/json" \
+  -d '{"district":"Sukkur","rainfall_mm_day":4.16,"temperature_c":30.2}'
+
+# get all causal links
+curl "https://abu-sameer-66-climashock-api.hf.space/causal?min_strength=0.1"
+
+# districts + model accuracy
+curl "https://abu-sameer-66-climashock-api.hf.space/districts"
+
+# novel discoveries
+curl "https://abu-sameer-66-climashock-api.hf.space/discoveries"
+```
+
+---
+
+## Tech Stack
+Kaggle (Tesla T4 GPU)         HuggingFace Spaces              Vercel
+──────────────────────────    ──────────────────────────    ──────────────────
+PyTorch LSTM training    →    FastAPI REST API          →   Next.js 16 UI
+XGBoost ensemble         →    Joblib model serving      →   Dark terminal UI
+PySpark 4.0 MapReduce    →    /predict /causal          →   Cascade animation
+Granger causal discovery →    /districts /discoveries   →   Pakistan risk map
+multiprocessing nodes    →    Pydantic validation        →   Live predictions
+NASA POWER API (free)    →    Git LFS model storage      →   District selector
+
+---
+
 ## Data Sources
 
-| Source | Data | Years | Access |
+| Source | Data | Years | Cost |
 |:---|:---|:---:|:---:|
-| NASA POWER API | Temperature, rainfall, humidity, solar radiation | 1990–2023 | Free |
-| World Bank Open Data | GDP growth, inflation, food production index | 1990–2023 | Free |
-| FAO / Pakistan Economic Survey | Wheat, rice, cotton, sugarcane, maize production | 1990–2023 | Free |
+| NASA POWER API | Temperature, rainfall, humidity, wind, solar | 1990–2023 | Free |
+| World Bank Open Data | GDP, inflation, food production index | 1990–2023 | Free |
+| FAO / Pakistan Economic Survey | Wheat, rice, cotton, sugarcane, maize | 1990–2023 | Free |
 
 ---
 
 ## Quick Start
 
 ```bash
+# clone repo
 git clone https://github.com/Abu-Sameer-66/ClimaShock-Pakistan.git
 cd ClimaShock-Pakistan/backend
+
+# install and run API locally
 pip install -r requirements.txt
 uvicorn app:app --reload
+# API → http://localhost:8000/docs
+
+# run frontend locally
+cd ../frontend
+npm install && npm run dev
+# UI → http://localhost:3000
 ```
-
-Local API → `http://localhost:8000`
-Live API  → `https://[huggingface-space-url]`
-Live UI   → `https://climashock.vercel.app`
-
----
-
-## API Usage
-
-```bash
-# cascade prediction — district + current climate
-curl -X POST "https://api-url/predict" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "district": "Sukkur",
-    "rainfall_mm_day": 4.16,
-    "temperature_c": 30.2
-  }'
-
-# get all causal links
-curl "https://api-url/causal?min_strength=0.1"
-
-# all districts + model accuracy
-curl "https://api-url/districts"
-
-# novel discoveries
-curl "https://api-url/discoveries"
-```
-
----
-
-## Tech Stack
-Heavy ML (Kaggle T4 GPU)      Backend (HuggingFace Spaces)    Frontend (Vercel)
-──────────────────────────    ──────────────────────────────   ─────────────────
-PyTorch LSTM training    →    FastAPI REST API             →   Next.js 15
-XGBoost ensemble         →    Joblib model serving         →   Dark terminal UI
-PySpark 4.0 MapReduce    →    Pydantic validation          →   Real-time cascade
-Granger causal discovery →    CORS + error handling        →   District selector
-multiprocessing nodes    →    /predict /causal /districts  →   Animated chain viz
-NASA POWER API           →    Auto-loaded models           →   Pakistan risk map
 
 ---
 
