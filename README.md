@@ -79,43 +79,43 @@ The problem is not that the data does not exist. NASA, World Bank, and FAO publi
 ---
 
 ## System Architecture
-┌─────────────────────────────────────────────────────────────────┐
-│                         DATA LAYER                              │
-│   NASA POWER API (climate) │ World Bank API │ FAO Crop Data     │
-│        34 years · 10 districts · 4,080 monthly records         │
-└──────────────┬──────────────────┬───────────────────┬───────────┘
-│                  │                   │
-┌─────────▼──────┐  ┌───────▼────────┐  ┌──────▼──────────┐
+┌─────────────────────────────────────────────────────────────┐
+│                         DATA LAYER                          │
+│   NASA POWER API (climate) │ World Bank API │ FAO Crop Data │
+│        34 years · 10 districts · 4,080 monthly records      │
+└─────────┬──────────────────┬───────────────────┬───────────-┘
+          │                  │                   │
+┌─────────▼──────┐  ┌──────--▼───────┐  ┌────--──▼────────┐
 │  NODE 1        │  │  NODE 2        │  │  NODE 3         │
 │  PID 798       │  │  PID 799       │  │  PID 800        │
 │  Climate       │  │  Economic      │  │  Agricultural   │
 │  Processor     │  │  Processor     │  │  Processor      │
 └────────┬───────┘  └──────┬─────────┘  └──────┬──────────┘
-└────────────┬────┘────────────────────┘
-│  Queue-based Message Passing
+└──────────┬──-----------──┘────────────────────┘
+           │  Queue-based Message Passing
 ┌──────────▼──────────────┐
 │   CENTRAL AGGREGATOR    │
 │   (34, 28) master matrix│
 └──────────┬──────────────┘
-│
-┌────────────────▼─────────────────────┐
-│       CAUSAL DISCOVERY ENGINE         │
-│  Granger Causality · 21 links found   │
-│  Temporal lag analysis (1–4 years)    │
+           │
+┌──────────▼──────────────────--------─┐
+│       CAUSAL DISCOVERY ENGINE        │
+│  Granger Causality · 21 links found  │
+│  Temporal lag analysis (1–4 years)   │
 └────────────────┬─────────────────────┘
-│
-┌─────────────────────▼──────────────────────────┐
+                 │
+┌────────────────▼─────────────────────────------─┐
 │              ML ENSEMBLE LAYER                  │
 │  LSTM (PyTorch)  MAE 2.87%  ·  Tesla T4 GPU     │
 │  XGBoost         MAE 3.19%  ·  6 lag features   │
-│  Ensemble        MAE 3.13%  ·  Inverse weighting │
-│  10 district-specific models  ·  47.3s parallel  │
-└─────────────────────┬──────────────────────────┘
-│
+│  Ensemble        MAE 3.13%  ·  Inverse weighting│
+│  10 district-specific models  ·  47.3s parallel │
+└─────────────────────┬─────────────────────────--┘
+                      │
 ┌─────────────────────▼──────────────────────────┐
-│              API + UI LAYER                     │
-│  FastAPI (HuggingFace) · Next.js 16 (Vercel)    │
-│  /predict  /causal  /districts  /discoveries    │
+│              API + UI LAYER                    │
+│  FastAPI (HuggingFace) · Next.js 16 (Vercel)   │
+│  /predict  /causal  /districts  /discoveries   │
 └────────────────────────────────────────────────┘
 
 ---
@@ -182,14 +182,14 @@ curl "https://abu-sameer-66-climashock-api.hf.space/discoveries"
 ---
 
 ## Tech Stack
-Kaggle (Tesla T4 GPU)         HuggingFace Spaces              Vercel
-──────────────────────────    ──────────────────────────    ──────────────────
-PyTorch LSTM training    →    FastAPI REST API          →   Next.js 16 UI
-XGBoost ensemble         →    Joblib model serving      →   Dark terminal UI
-PySpark 4.0 MapReduce    →    /predict /causal          →   Cascade animation
-Granger causal discovery →    /districts /discoveries   →   Pakistan risk map
-multiprocessing nodes    →    Pydantic validation        →   Live predictions
-NASA POWER API (free)    →    Git LFS model storage      →   District selector
+Kaggle (Tesla T4 GPU)             HuggingFace Spaces              Vercel
+──────────────────────────        ─────────────────────────   ──────────────────
+PyTorch LSTM training    →        FastAPI REST API             →   Next.js 16 UI
+XGBoost ensemble         →        Joblib model serving         →   Dark terminal UI
+PySpark 4.0 MapReduce    →        /predict /causal             →   Cascade animation
+Granger causal discovery →        /districts /discoveries      →   Pakistan risk map
+multiprocessing nodes    →        Pydantic validation          →   Live predictions
+NASA POWER API (free)    →        Git LFS model storage        →   District selector
 
 ---
 
