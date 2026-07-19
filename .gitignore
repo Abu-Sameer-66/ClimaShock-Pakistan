@@ -9,3 +9,25 @@ node_modules/
 .next/
 venv/
 .DS_Store
+
+
+# data files — git mein nahi
+climarisk/data/raw/
+climarisk/data/processed/*.csv
+climarisk/data/processed/plots/
+
+# lekin pipeline code track karo
+!climarisk/pipeline/
+!climarisk/models/
+
+# python
+__pycache__/
+*.pyc
+*.pyo
+.env
+
+# jupyter
+.ipynb_checkpoints/
+
+# conda
+*.egg-info/
